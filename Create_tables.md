@@ -3,7 +3,7 @@ The following scripts were used to create the tables
 
 --Create table sales_by_SKU
 ```SQL
-CREATE TABLE sales_by_sku (
+CREATE TABLE sales_by_sku ( 
   productSKU             VARCHAR(20),
   total_ordered          INT
 );
