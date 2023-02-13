@@ -37,32 +37,13 @@ FROM
 		WHERE transactionrevenue >0
 	) rev
 ```
-```SQL
---Calculating using the analytics table and all_sessions joined for revenue
-SELECT DISTINCT rev.city,
-				rev.country,
-				rev.revenue_city,
-				rev.revenue_country
-FROM
-(
-	--Subquery to calculate revenue by city and country
-		SELECT  s.country,
-				s.city,
-				SUM(COALESCE(a.revenue,0)) OVER(PARTITION BY s.country
-				RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) revenue_country,
-				SUM(COALESCE(a.revenue,0)) OVER(PARTITION BY s.city
-				RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) revenue_city
-		FROM all_sessions s
-		INNER JOIN analytics_new a on a.visitid=s.visitid
-		WHERE a.revenue >0
-	) rev
-```
+
 **Answer:**
 
 The country with the highest revenue is United States and the city with the highest revenue is the non register city ("not available in demo dataset"). I created two possible solutions:
 - The first one is just considering the revenue in general.
 - The second one is considering the revenue by city and adding it as columns.
-- The third query is considering the revenue from the table analytics_new
+
 
 
 
