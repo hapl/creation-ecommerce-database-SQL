@@ -6,7 +6,7 @@ The main goal is to with techniques and strategies for Transforming and Analyzin
 ## Process
 ### Creation of the ecommerce database
 - Creation of tables using scripts that can be seen on the file [create_tables.md](Create_tables.md)
-- Upload data using postgre **\COPY** option to import csv files. I also used the wizard from the Postgres GUI for some files.
+- Upload data using postgres **\COPY** option to import csv files. I also used the wizard from the Postgres GUI for some files.
 
 ### Review data integrity
 - Check the table content to compare rows and check if the files imported correctly and have the right values.
